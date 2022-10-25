@@ -1,29 +1,30 @@
 package entities;
 
 public class Order {
-    private int orderFee;
+    private double orderFee;
     private Load load;
 
     public Order() {
     }
 
-    public Order(int orderFee) {
-        this.orderFee = orderFee;
+    public Order(Load load) {
+        this.orderFee = load.getWeight() * DeliveryCompany.PRICE_PER_KILOGRAM;
+        this.load = load;
     }
 
-    public int getOrderFee() {
+    public double getOrderFee() {
         return orderFee;
     }
 
-    public void setOrderFee(int orderFee) {
+    public void setOrderFee(double orderFee) {
         this.orderFee = orderFee;
     }
 
-    public Load getOrder() {
+    public Load getLoad() {
         return load;
     }
 
-    public void setOrder(Load load) {
+    public void setLoad(Load load) {
         this.load = load;
     }
 
@@ -31,6 +32,7 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "orderFee=" + orderFee +
+                ", load=" + load +
                 '}';
     }
 }
